@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view>
+	<h:form>
+		<h1>Registro</h1>
+			<h:panelGrid columns="2">			
+				<h:outputLabel value="Nombre:"/>
+				<h:inputText id="idtext" value="#{employeeBean.emp.nombre}"/>
+				<h:outputLabel value="Apellido:"/>
+				<h:inputText id="apellidos" value="#{employeeBean.emp.apellido}"/>		
+				<h:outputLabel value="Area:"/>
+				<h:inputText id="area" value="#{employeeBean.emp.area}"/>
+				<f:facet name="footer">
+					<h:commandButton value="Agregar" action="#{employeeBean.agregar}"/>
+				</f:facet>
+			</h:panelGrid>
+			
+			<br/>
+									
+			<h:dataTable value="#{employeeBean.lsp}" var="item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="id"/>
+					</f:facet>
+					<h:outputText value="#{item.idemployee}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre" />
+					</f:facet>
+					<h:outputText value="#{item.nombre}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Apellido" />
+					</f:facet>
+					<h:outputText value="#{item.apellido}"/>
+				</h:column>	
+			</h:dataTable>			
+	</h:form>
+</f:view>
+</html>
